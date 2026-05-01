@@ -1,0 +1,10 @@
+services:
+  customer-service:
+  order-service:
+  payment-service:
+  restaurant-service:
+  delivery-service:
+  
+  postgres-customer:
+  postgres-order:
+  postgres-payment:
