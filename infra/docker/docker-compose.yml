@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  customer-service:
+    image: customer-service:latest
+    build: ../../services/customer-service
+    ports:
+      - "8001:8001"
+  restaurant-service:
+    image: restaurant-service:latest
+    build: ../../services/restaurant-service
+    ports:
+      - "8002:8002"
+  order-service:
+    image: order-service:latest
+    build: ../../services/order-service
+    ports:
+      - "8003:8003"
+  payment-service:
+    image: payment-service:latest
+    build: ../../services/payment-service
+    ports:
+      - "8004:8004"
+  delivery-service:
+    image: delivery-service:latest
+    build: ../../services/delivery-service
+    ports:
+      - "8005:8005"
+  notification-service:
+    image: notification-service:latest
+    build: ../../services/notification-service
+    ports:
+      - "8006:8006"
