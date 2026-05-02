@@ -107,13 +107,13 @@ services:
       customer-db:
         condition: "service_healthy"
 
-  # restaurant-service:
-  #   build: ./services/restaurant-service
-  #   ports:
-  #     - "8002:8000"
-  #   depends_on:
-  #     restaurant-db:
-  #       condition: "service_healthy"
+  restaurant-service:
+    build: ./services/restaurant-service
+    ports:
+      - "8002:8000"
+    depends_on:
+      restaurant-db:
+        condition: "service_healthy"
 
   # order-service:
   #   build: ./services/order-service
