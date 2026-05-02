@@ -1,0 +1,83 @@
+address_id,customer_id,line1,area,city,pincode,created_at
+1,1,196 5th Main,Bandra,Kolkata,560944,2022-07-23 00:57:33
+2,2,185 5th Main,Hitech City,Hyderabad,560555,2024-02-19 13:40:50
+3,3,126 5th Main,Hitech City,Mumbai,560381,2025-07-02 10:26:14
+4,4,81 5th Main,Connaught Place,Kolkata,560249,2025-06-24 17:11:51
+5,5,16 5th Main,Salt Lake,Chennai,560884,2022-03-01 14:54:17
+6,6,115 3rd Main,Koramangala,Delhi,560934,2023-04-04 00:35:51
+7,7,67 2nd Main,Whitefield,Mumbai,560295,2025-01-13 06:30:20
+8,8,97 3rd Main,Bandra,Chennai,560001,2022-09-11 21:38:16
+9,8,33 3rd Main,Baner,Chennai,560001,2022-08-20 21:38:16
+10,9,224 2nd Main,Andheri,Mumbai,560646,2024-08-16 22:37:36
+11,10,198 4th Main,Bopal,Ahmedabad,560089,2023-07-05 15:53:51
+12,11,213 5th Main,Connaught Place,Bengaluru,560920,2022-08-02 17:19:51
+13,11,84 4th Main,Koramangala,Hyderabad,560203,2022-07-11 17:19:51
+14,12,61 4th Main,Bopal,Mumbai,560612,2024-09-10 02:07:19
+15,13,203 2nd Main,Bandra,Pune,560533,2023-01-16 08:16:04
+16,14,140 1st Main,Andheri,Pune,560154,2025-05-05 19:28:03
+17,14,180 1st Main,Hitech City,Chennai,560639,2025-03-13 19:28:03
+18,15,189 2nd Main,Connaught Place,Chennai,560576,2023-01-06 15:02:06
+19,15,174 5th Main,Salt Lake,Bengaluru,560849,2022-12-01 15:02:06
+20,16,208 5th Main,Connaught Place,Delhi,560986,2023-01-16 16:14:12
+21,16,221 5th Main,Andheri,Pune,560938,2023-02-16 16:14:12
+22,17,121 3rd Main,Baner,Bengaluru,560694,2022-11-28 12:18:52
+23,17,26 1st Main,Salt Lake,Hyderabad,560109,2022-09-27 12:18:52
+24,18,211 2nd Main,Bopal,Hyderabad,560977,2024-08-07 17:55:17
+25,19,31 3rd Main,Hitech City,Pune,560644,2024-11-02 01:42:52
+26,20,122 2nd Main,Velachery,Mumbai,560369,2022-11-17 19:23:09
+27,21,12 3rd Main,Velachery,Mumbai,560757,2023-05-14 20:25:02
+28,21,73 2nd Main,Whitefield,Pune,560424,2023-07-13 20:25:02
+29,22,209 3rd Main,Salt Lake,Delhi,560909,2025-04-02 17:13:05
+30,23,171 1st Main,Connaught Place,Ahmedabad,560564,2023-07-02 22:14:11
+31,24,153 2nd Main,Baner,Ahmedabad,560654,2023-08-11 00:43:09
+32,25,148 5th Main,Koramangala,Delhi,560452,2025-10-13 21:36:36
+33,25,49 2nd Main,Bopal,Chennai,560783,2025-10-08 21:36:36
+34,26,106 5th Main,Baner,Ahmedabad,560072,2022-05-25 06:48:09
+35,27,93 4th Main,Baner,Mumbai,560968,2024-05-01 10:53:57
+36,27,157 3rd Main,Hitech City,Delhi,560851,2024-04-14 10:53:57
+37,28,53 2nd Main,Hitech City,Chennai,560448,2023-12-12 15:27:02
+38,28,154 1st Main,Whitefield,Delhi,560110,2024-04-07 15:27:02
+39,29,196 4th Main,Baner,Pune,560772,2024-11-13 03:50:08
+40,29,33 4th Main,Bopal,Kolkata,560006,2024-08-27 03:50:08
+41,30,143 2nd Main,Salt Lake,Bengaluru,560010,2024-01-23 21:38:25
+42,30,179 3rd Main,Connaught Place,Hyderabad,560333,2023-08-20 21:38:25
+43,31,58 5th Main,Whitefield,Bengaluru,560667,2022-10-10 20:35:27
+44,32,104 2nd Main,Bandra,Kolkata,560658,2025-07-30 23:04:57
+45,33,105 2nd Main,Koramangala,Kolkata,560486,2023-03-13 00:04:25
+46,33,156 1st Main,Connaught Place,Pune,560184,2022-12-27 00:04:25
+47,34,129 5th Main,Andheri,Delhi,560574,2024-12-07 13:40:38
+48,35,142 4th Main,Indiranagar,Kolkata,560384,2025-01-20 11:20:01
+49,36,240 3rd Main,Koramangala,Hyderabad,560274,2022-10-24 04:44:30
+50,37,49 3rd Main,Hitech City,Ahmedabad,560127,2025-01-25 21:36:14
+51,37,33 2nd Main,Koramangala,Hyderabad,560942,2024-11-29 21:36:14
+52,38,122 3rd Main,Connaught Place,Pune,560069,2025-09-16 14:49:39
+53,39,21 3rd Main,Koramangala,Ahmedabad,560435,2025-06-20 22:10:40
+54,39,72 1st Main,Whitefield,Pune,560069,2025-06-24 22:10:40
+55,40,228 4th Main,Baner,Delhi,560598,2025-04-16 11:47:38
+56,40,123 3rd Main,Whitefield,Chennai,560851,2025-04-26 11:47:38
+57,41,119 5th Main,Whitefield,Kolkata,560016,2022-07-11 10:04:58
+58,42,169 5th Main,Koramangala,Pune,560178,2024-11-23 12:24:17
+59,43,6 1st Main,Bopal,Ahmedabad,560604,2022-09-16 23:14:17
+60,43,44 1st Main,Whitefield,Bengaluru,560142,2022-10-31 23:14:17
+61,44,19 1st Main,Koramangala,Pune,560670,2025-05-26 08:33:53
+62,45,88 3rd Main,Velachery,Ahmedabad,560566,2024-06-03 17:20:12
+63,45,242 5th Main,Salt Lake,Delhi,560887,2024-02-05 17:20:12
+64,46,79 1st Main,Velachery,Mumbai,560268,2024-08-23 19:10:50
+65,47,136 5th Main,Bopal,Delhi,560761,2022-09-10 07:41:59
+66,48,5 3rd Main,Connaught Place,Delhi,560034,2022-07-11 11:43:08
+67,49,21 3rd Main,Koramangala,Bengaluru,560469,2024-01-27 09:23:42
+68,49,124 4th Main,Indiranagar,Mumbai,560754,2024-05-11 09:23:42
+69,50,1 3rd Main,Whitefield,Kolkata,560077,2023-12-17 11:40:06
+70,50,123 5th Main,Baner,Kolkata,560405,2023-11-26 11:40:06
+71,51,188 1st Main,Andheri,Kolkata,560960,2023-10-01 01:17:20
+72,51,198 2nd Main,Baner,Chennai,560865,2023-07-21 01:17:20
+73,52,47 2nd Main,Connaught Place,Ahmedabad,560976,2025-08-23 20:51:10
+74,53,117 4th Main,Hitech City,Delhi,560091,2023-07-02 00:59:12
+75,53,105 3rd Main,Velachery,Hyderabad,560469,2023-09-19 00:59:12
+76,54,102 4th Main,Indiranagar,Pune,560226,2024-01-23 23:56:26
+77,55,174 5th Main,Andheri,Bengaluru,560043,2023-01-19 12:17:03
+78,56,83 4th Main,Velachery,Bengaluru,560228,2024-03-31 02:19:35
+79,57,246 5th Main,Koramangala,Pune,560342,2022-05-16 15:28:02
+80,58,60 3rd Main,Salt Lake,Pune,560634,2025-10-18 18:22:01
+81,59,132 4th Main,Bopal,Hyderabad,560579,2025-07-07 20:14:13
+82,60,198 4th Main,Velachery,Kolkata,560673,2024-06-30 10:26:55
