@@ -115,38 +115,34 @@ services:
       restaurant-db:
         condition: "service_healthy"
 
-  # order-service:
-  #   build: ./services/order-service
-  #   ports:
-  #     - "8003:8000"
-  #   depends_on:
-  #     order-db:
-  #       condition: "service_healthy"
-  #     restaurant-service:
-  #       condition: "service_healthy"
-  #     payment-service:
-  #       condition: "service_healthy"
+  payment-service:
+    build: ./services/payment-service
+    ports:
+      - "8004:8000"
+    depends_on:
+      payment-db:
+        condition: "service_healthy"
 
-  # payment-service:
-  #   build: ./services/payment-service
-  #   ports:
-  #     - "8004:8000"
-  #   depends_on:
-  #     payment-db:
-  #       condition: "service_healthy"
+  delivery-service:
+    build: ./services/delivery-service
+    ports:
+      - "8005:8000"
+    depends_on:
+      delivery-db:
+        condition: "service_healthy"
 
-  # delivery-service:
-  #   build: ./services/delivery-service
-  #   ports:
-  #     - "8005:8000"
-  #   depends_on:
-  #     delivery-db:
-  #       condition: "service_healthy"
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "8006:8000"
+    depends_on:
+      notification-db:
+        condition: "service_healthy"
 
-  # notification-service:
-  #   build: ./services/notification-service
-  #   ports:
-  #     - "8006:8000"
-  #   depends_on:
-  #     notification-db:
-  #       condition: "service_healthy"
+  order-service:
+    build: ./services/order-service
+    ports:
+      - "8003:8000"
+    depends_on:
+      order-db:
+        condition: "service_healthy"
