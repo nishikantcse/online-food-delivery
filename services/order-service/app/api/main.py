@@ -1,36 +1,58 @@
-from fastapi import Depends, FastAPI, HTTPException
-from sqlalchemy.orm import Session
+# services/order-service/app/api/main.py
 
-from app import crud
-from app.db import SessionLocal, init_db
-from app.schemas import OrderCreate, OrderRead
-from app.services.order_service import (
-    enrich_order_prices,
-    validate_order_payload,
-    validate_restaurant_and_menu,
-)
+from fastapi import FastAPI, HTTPException
+import psycopg2
+import requests
 
-init_db()
+app = FastAPI()
 
-app = FastAPI(title="Order Service")
+def get_conn():
+    return psycopg2.connect(
+        host="order-db",
+        database="order_db",
+        user="postgres",
+        password="postgres"
+    )
 
+@app.post("/v1/orders")
+def create_order(order: dict):
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+    # 1. Validate restaurant
+    r = requests.get(f"http://restaurant-service:8000/v1/restaurants")
+    restaurants = r.json()["data"]
 
+    if not any(res[0] == order["restaurant_id"] for res in restaurants):
+        raise HTTPException(400, "Restaurant closed or not found")
 
-@app.post("/orders", response_model=OrderRead, status_code=201)
-def create_order(order: OrderCreate, db: Session = Depends(get_db)):
-    validate_order_payload(order)
-    validate_restaurant_and_menu(order)
-    order_with_prices = enrich_order_prices(order)
-    return crud.create_order(db=db, order_in=order_with_prices)
+    # 2. Calculate total
+    total = 0
+    for item in order["items"]:
+        total += item["price"] * item["quantity"]
 
+    total = total + (0.05 * total) + 30  # tax + delivery
 
-@app.get("/orders", response_model=list[OrderRead])
-def read_orders(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return crud.get_orders(db=db, skip=skip, limit=limit)
+    # 3. Save order
+    conn = get_conn()
+    cur = conn.cursor()
+
+    cur.execute(
+        "INSERT INTO orders VALUES (%s,%s,%s,%s,'CREATED',%s,'PENDING',NOW())",
+        (order["order_id"], order["customer_id"], order["restaurant_id"], order["address_id"], total)
+    )
+
+    for item in order["items"]:
+        cur.execute(
+            "INSERT INTO order_items VALUES (%s,%s,%s,%s,%s)",
+            (item["order_item_id"], order["order_id"], item["item_id"], item["quantity"], item["price"])
+        )
+
+    conn.commit()
+
+    return {"message": "Order created", "total": total}
+
+@app.get("/v1/orders/{order_id}")
+def get_order(order_id: int):
+    conn = get_conn()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM orders WHERE order_id=%s", (order_id,))
+    return {"data": cur.fetchone()}

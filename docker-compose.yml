@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-
+  # Database services
   customer-db:
     image: postgres:15
     environment:
@@ -18,51 +18,87 @@ services:
       timeout: 5s
       retries: 5
 
-  # restaurant-db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: restaurant_db
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #   ports:
-  #     - "5434:5432"
+  restaurant-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: restaurant_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+    - ./data/db-init-scripts/restaurant-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  # order-db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: order_db
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #   ports:
-  #     - "5435:5432"
+  order-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5435:5432"
+    volumes:
+    - ./data/db-init-scripts/order-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  # payment-db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: payment_db
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #   ports:
-  #     - "5436:5432"
+  payment-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5436:5432"
+    volumes:
+    - ./data/db-init-scripts/payment-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  # notification-db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: notification_db
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #   ports:
-  #     - "5437:5432"
+  notification-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: notification_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5437:5432"
+    volumes:
+    - ./data/db-init-scripts/notification-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
-  # delivery-db:
-  #   image: postgres:15
-  #   environment:
-  #     POSTGRES_DB: delivery_db
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_PASSWORD: postgres
-  #   ports:
-  #     - "5438:5432"
+  delivery-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: delivery_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5438:5432"
+    volumes:
+    - ./data/db-init-scripts/delivery-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
+  # Application services
   customer-service:
     build: ./services/customer-service
     ports:
@@ -76,30 +112,41 @@ services:
   #   ports:
   #     - "8002:8000"
   #   depends_on:
-  #     - restaurant-db
+  #     restaurant-db:
+  #       condition: "service_healthy"
 
   # order-service:
   #   build: ./services/order-service
   #   ports:
   #     - "8003:8000"
   #   depends_on:
-  #     - order-db
-  #     - restaurant-service
-  #     - payment-service
+  #     order-db:
+  #       condition: "service_healthy"
+  #     restaurant-service:
+  #       condition: "service_healthy"
+  #     payment-service:
+  #       condition: "service_healthy"
 
   # payment-service:
   #   build: ./services/payment-service
   #   ports:
   #     - "8004:8000"
   #   depends_on:
-  #     - payment-db
+  #     payment-db:
+  #       condition: "service_healthy"
 
   # delivery-service:
   #   build: ./services/delivery-service
   #   ports:
   #     - "8005:8000"
+  #   depends_on:
+  #     delivery-db:
+  #       condition: "service_healthy"
 
   # notification-service:
   #   build: ./services/notification-service
   #   ports:
   #     - "8006:8000"
+  #   depends_on:
+  #     notification-db:
+  #       condition: "service_healthy"
