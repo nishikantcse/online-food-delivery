@@ -1,8 +1,8 @@
 # services/customer-service/app/api/main.py
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request, Response
 import psycopg2
-from prometheus_client import Counter, Histogram, generate_latest
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 import time
 
 app = FastAPI()
@@ -29,7 +29,7 @@ async def add_metrics(request, call_next):
 
 @app.get("/metrics")
 def metrics():
-    return generate_latest()
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 @app.post("/v1/customers")
 def create_customer(customer: dict):
